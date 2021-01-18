@@ -1,5 +1,6 @@
 package com.gadgetmart.soa.soagadget.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,18 @@ public class ItemServiceImpl implements ItemService {
 	private WebClient webclient;
 
 	@Override
-	public List<ItemDTO> getAll() {
-		List<ItemDTO> listDTO= webclient.getItemAll();
-		return listDTO;
+	public List<ItemDTO> getAllItems() {
+		List<ItemDTO> newList = new ArrayList<ItemDTO>();
+
+		List<ItemDTO> listDTO1 = webclient.getItemAbans();
+		List<ItemDTO> listDTO2 = webclient.getItemSin();
+		List<ItemDTO> listDTO3 = webclient.getItemSoft();
+
+		newList.addAll(listDTO1);
+		newList.addAll(listDTO2);
+		newList.addAll(listDTO3);
+
+		return newList;
 	}
 
 }

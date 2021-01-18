@@ -7,6 +7,5 @@ import com.gadgetmart.soa.soagadget.model.Item;
 
 public interface ItemService {
 	
-	public List<ItemDTO> getAll();
-
+	public List<ItemDTO> getAllItems();
 }

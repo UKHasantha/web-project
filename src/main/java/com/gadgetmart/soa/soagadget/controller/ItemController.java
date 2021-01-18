@@ -19,9 +19,9 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 	
-	@GetMapping("/item")
-	public List<ItemDTO> getAllItems(){
-		return itemService.getAll();
+	@GetMapping("/Ab")
+	public List<ItemDTO> getAllItemsAb(){
+		return itemService.getAllItems();
 	}
 
 }
