@@ -18,17 +18,34 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public List<ItemDTO> getAllItems() {
-		List<ItemDTO> newList = new ArrayList<ItemDTO>();
+		try {
+			List<ItemDTO> newList = new ArrayList<ItemDTO>();
 
-		List<ItemDTO> listDTO1 = webclient.getItemAbans();
-		List<ItemDTO> listDTO2 = webclient.getItemSin();
-		List<ItemDTO> listDTO3 = webclient.getItemSoft();
+			List<ItemDTO> listDTO1 = webclient.getItemAbans();
+			List<ItemDTO> listDTO2 = webclient.getItemSin();
+			List<ItemDTO> listDTO3 = webclient.getItemSoft();
 
-		newList.addAll(listDTO1);
-		newList.addAll(listDTO2);
-		newList.addAll(listDTO3);
+			if (listDTO1.isEmpty()) {
+				throw new Exception("cannot get abans data..");
+			}
+			if (listDTO2.isEmpty()) {
+				throw new Exception("cannot get siger data..");
+			}
+			if (listDTO3.isEmpty()) {
+				throw new Exception("cannot get softlogic data..");
+			}
 
-		return newList;
+			newList.addAll(listDTO1);
+			newList.addAll(listDTO2);
+			newList.addAll(listDTO3);
+
+			return newList;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
 	}
 
 }
