@@ -29,7 +29,7 @@ public class ItemServiceImpl implements ItemService {
 				throw new Exception("cannot get abans data..");
 			}
 			if (listDTO2.isEmpty()) {
-				throw new Exception("cannot get siger data..");
+				throw new Exception("cannot get singer data..");
 			}
 			if (listDTO3.isEmpty()) {
 				throw new Exception("cannot get softlogic data..");

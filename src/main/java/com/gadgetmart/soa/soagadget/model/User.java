@@ -14,17 +14,19 @@ public class User {
 	private String name;
 	private String mobile;
 	private String address;
+	private String password;
 
 	public User() {
 		super();
 	}
 
-	public User(int id, String name, String mobile, String address) {
+	public User(int id, String name, String mobile, String address, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.mobile = mobile;
 		this.address = address;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -59,9 +61,19 @@ public class User {
 		this.address = address;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", mobile=" + mobile + ", address=" + address + "]";
+	public String getPassword() {
+		return password;
 	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", mobile=" + mobile + ", address=" + address + ", password="
+				+ password + "]";
+	}
+
+	
 }
